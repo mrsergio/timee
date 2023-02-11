@@ -12,20 +12,25 @@ enum EntryState {
 }
 
 struct EntryLiveView: View {
-    private let accentColor = Color.gray
+    private let accentColor = Color.LightYellow
     
     @State var entry: String
     @State var state: EntryState
     
     var body: some View {
-        HStack(spacing: 4) {
+        HStack(spacing: 8) {
             ZStack {
                 Capsule()
                     .strokeBorder(accentColor.opacity(0.25), lineWidth: 2)
                 
-                TextField("I'm working on...", text: $entry)
-                    .foregroundColor(accentColor)
-                    .padding([.leading, .trailing], 16)
+                TextField(
+                    "",
+                    text: $entry,
+                    prompt: Text("I'm working on...")
+                        .foregroundColor(accentColor.opacity(0.75))
+                )
+                .foregroundColor(accentColor)
+                .padding([.leading, .trailing], 16)
             }
             .padding([.top, .bottom], 3)
             

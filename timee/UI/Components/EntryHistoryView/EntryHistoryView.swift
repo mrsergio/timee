@@ -28,7 +28,6 @@ struct EntryHistoryView: View {
                     .fontWeight(.medium)
             }
         }
-        .padding([.leading, .trailing], 16)
     }
 }
 
