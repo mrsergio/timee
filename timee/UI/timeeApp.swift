@@ -11,7 +11,10 @@ import SwiftUI
 struct timeeApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            NavigationStack {
+                HomeView()
+                    .navigationTitle("Timee")
+            }
         }
     }
 }
