@@ -14,6 +14,7 @@
 		49EABE772997646D00B1CEFC /* timeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE762997646D00B1CEFC /* timeeTests.swift */; };
 		49EABE812997646D00B1CEFC /* timeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE802997646D00B1CEFC /* timeeUITests.swift */; };
 		49EABE832997646D00B1CEFC /* timeeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE822997646D00B1CEFC /* timeeUITestsLaunchTests.swift */; };
+		49EABE9729976ADE00B1CEFC /* EntryLiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE9629976ADE00B1CEFC /* EntryLiveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		49EABE7C2997646D00B1CEFC /* timeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EABE802997646D00B1CEFC /* timeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeeUITests.swift; sourceTree = "<group>"; };
 		49EABE822997646D00B1CEFC /* timeeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		49EABE9629976ADE00B1CEFC /* EntryLiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryLiveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +130,9 @@
 		49EABE8F299768DD00B1CEFC /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				49EABE672997646B00B1CEFC /* ContentView.swift */,
 				49EABE652997646B00B1CEFC /* timeeApp.swift */,
+				49EABE9129976A8500B1CEFC /* Scenes */,
+				49EABE9229976A8D00B1CEFC /* Components */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -141,6 +144,46 @@
 				49EABE6B2997646D00B1CEFC /* Preview Content */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		49EABE9129976A8500B1CEFC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				49EABE9329976A9A00B1CEFC /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		49EABE9229976A8D00B1CEFC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				49EABE9429976AA500B1CEFC /* EntryLiveView */,
+				49EABE9529976AC700B1CEFC /* EntryHistoryView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		49EABE9329976A9A00B1CEFC /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				49EABE672997646B00B1CEFC /* ContentView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		49EABE9429976AA500B1CEFC /* EntryLiveView */ = {
+			isa = PBXGroup;
+			children = (
+				49EABE9629976ADE00B1CEFC /* EntryLiveView.swift */,
+			);
+			path = EntryLiveView;
+			sourceTree = "<group>";
+		};
+		49EABE9529976AC700B1CEFC /* EntryHistoryView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EntryHistoryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EABE682997646B00B1CEFC /* ContentView.swift in Sources */,
+				49EABE9729976ADE00B1CEFC /* EntryLiveView.swift in Sources */,
 				49EABE662997646B00B1CEFC /* timeeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,7 +476,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"timee/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"timee/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QNRPCJX8C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -461,7 +505,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"timee/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"timee/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 6QNRPCJX8C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
