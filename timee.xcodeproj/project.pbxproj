@@ -94,10 +94,8 @@
 		49EABE642997646B00B1CEFC /* timee */ = {
 			isa = PBXGroup;
 			children = (
-				49EABE652997646B00B1CEFC /* timeeApp.swift */,
-				49EABE672997646B00B1CEFC /* ContentView.swift */,
-				49EABE692997646D00B1CEFC /* Assets.xcassets */,
-				49EABE6B2997646D00B1CEFC /* Preview Content */,
+				49EABE8F299768DD00B1CEFC /* UI */,
+				49EABE90299768FE00B1CEFC /* Resources */,
 			);
 			path = timee;
 			sourceTree = "<group>";
@@ -125,6 +123,24 @@
 				49EABE822997646D00B1CEFC /* timeeUITestsLaunchTests.swift */,
 			);
 			path = timeeUITests;
+			sourceTree = "<group>";
+		};
+		49EABE8F299768DD00B1CEFC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				49EABE672997646B00B1CEFC /* ContentView.swift */,
+				49EABE652997646B00B1CEFC /* timeeApp.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		49EABE90299768FE00B1CEFC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				49EABE692997646D00B1CEFC /* Assets.xcassets */,
+				49EABE6B2997646D00B1CEFC /* Preview Content */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
