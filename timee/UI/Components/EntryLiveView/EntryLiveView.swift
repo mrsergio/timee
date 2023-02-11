@@ -70,12 +70,12 @@ struct EntryLiveView_Previews: PreviewProvider {
     static var previews: some View {
         EntryLiveView(entry: "", state: .idle)
             .frame(width: 300, height: 44)
-            .background(Color.gray.opacity(0.1))
+            .background(Color.DarkPurple)
             .previewDisplayName("Idle")
         
         EntryLiveView(entry: "Patient #5", state: .active)
             .frame(width: 300, height: 44)
-            .background(Color.gray.opacity(0.1))
+            .background(Color.DarkPurple)
             .previewDisplayName("Active")
     }
 }

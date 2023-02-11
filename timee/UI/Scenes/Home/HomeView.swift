@@ -36,18 +36,17 @@ struct HomeView: View {
                     }
                 }
             }
-            
-            ZStack(alignment: .top) {
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundColor(Color.DarkPurple)
-                
-                EntryLiveView(entry: "", state: .idle)
-                    .frame(height: 44)
-                    .padding(.top, 16)
-                    .padding([.leading, .trailing], 12)
-            }
-            .edgesIgnoringSafeArea(.bottom)
-            .frame(height: 72)
+        }
+        .safeAreaInset(edge: .bottom) {
+            EntryLiveView(entry: "", state: .idle)
+                .frame(height: 44)
+                .frame(maxWidth: .infinity)
+                .padding([.top, .bottom], 16)
+                .padding([.leading, .trailing], 12)
+                .background(
+                    Color.DarkPurple
+                        .shadow(.drop(radius: 8))
+                )
         }
     }
 }
