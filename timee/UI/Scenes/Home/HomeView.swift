@@ -20,20 +20,34 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        VStack {
-            List {
-                Section("Today") {
-                    ForEach(entries, id: \.self) { entry in
-                        EntryHistoryView(entry: entry.title, duration: String(entry.duration), when: "today")
+        ZStack(alignment: .bottom) {
+            VStack {
+                List {
+                    Section("Today") {
+                        ForEach(entries, id: \.self) { entry in
+                            EntryHistoryView(entry: entry.title, duration: String(entry.duration), when: "today")
+                        }
                     }
-                }
-                
-                Section("Yesterday") {
-                    ForEach(entries, id: \.self) { entry in
-                        EntryHistoryView(entry: entry.title, duration: String(entry.duration), when: "today")
+                    
+                    Section("Yesterday") {
+                        ForEach(entries, id: \.self) { entry in
+                            EntryHistoryView(entry: entry.title, duration: String(entry.duration), when: "today")
+                        }
                     }
                 }
             }
+            
+            ZStack(alignment: .top) {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundColor(Color.DarkPurple)
+                
+                EntryLiveView(entry: "", state: .idle)
+                    .frame(height: 44)
+                    .padding(.top, 16)
+                    .padding([.leading, .trailing], 12)
+            }
+            .edgesIgnoringSafeArea(.bottom)
+            .frame(height: 72)
         }
     }
 }
