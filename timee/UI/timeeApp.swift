@@ -6,14 +6,20 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct timeeApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                HomeView()
-                    .navigationTitle("Timee")
+                HomeView(
+                    store: Store(
+                        initialState: HomeReducer.State(entries: []),
+                        reducer: HomeReducer()
+                    )
+                )
+                .navigationTitle("Timee")
             }
         }
     }
