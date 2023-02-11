@@ -11,6 +11,7 @@
 		493E26E82997955A00FD0B53 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E26E72997955A00FD0B53 /* Colors.swift */; };
 		493E26EB2997B97B00FD0B53 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 493E26EA2997B97B00FD0B53 /* ComposableArchitecture */; };
 		493E26ED2997B9AF00FD0B53 /* HomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E26EC2997B9AF00FD0B53 /* HomeReducer.swift */; };
+		493E26F12997C41C00FD0B53 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 493E26F02997C41C00FD0B53 /* GRDB */; };
 		497B9B31299778280019117A /* EntryHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B9B30299778280019117A /* EntryHistoryView.swift */; };
 		49EABE662997646B00B1CEFC /* timeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE652997646B00B1CEFC /* timeeApp.swift */; };
 		49EABE682997646B00B1CEFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE672997646B00B1CEFC /* HomeView.swift */; };
@@ -63,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				493E26EB2997B97B00FD0B53 /* ComposableArchitecture in Frameworks */,
+				493E26F12997C41C00FD0B53 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		493E26EE2997BCE000FD0B53 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		49EABE592997646B00B1CEFC = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +123,7 @@
 		49EABE642997646B00B1CEFC /* timee */ = {
 			isa = PBXGroup;
 			children = (
+				493E26EE2997BCE000FD0B53 /* Persistence */,
 				49EABE8F299768DD00B1CEFC /* UI */,
 				49EABE90299768FE00B1CEFC /* Resources */,
 				493E26E22997943700FD0B53 /* Extensions */,
@@ -226,6 +236,7 @@
 			name = timee;
 			packageProductDependencies = (
 				493E26EA2997B97B00FD0B53 /* ComposableArchitecture */,
+				493E26F02997C41C00FD0B53 /* GRDB */,
 			);
 			productName = timee;
 			productReference = 49EABE622997646B00B1CEFC /* timee.app */;
@@ -301,6 +312,7 @@
 			mainGroup = 49EABE592997646B00B1CEFC;
 			packageReferences = (
 				493E26E92997B97B00FD0B53 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				493E26EF2997C41C00FD0B53 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 49EABE632997646B00B1CEFC /* Products */;
 			projectDirPath = "";
@@ -685,6 +697,14 @@
 				kind = branch;
 			};
 		};
+		493E26EF2997C41C00FD0B53 /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -692,6 +712,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 493E26E92997B97B00FD0B53 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		493E26F02997C41C00FD0B53 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 493E26EF2997C41C00FD0B53 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
