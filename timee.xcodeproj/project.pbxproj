@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		497B9B31299778280019117A /* EntryHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B9B30299778280019117A /* EntryHistoryView.swift */; };
 		49EABE662997646B00B1CEFC /* timeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE652997646B00B1CEFC /* timeeApp.swift */; };
-		49EABE682997646B00B1CEFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE672997646B00B1CEFC /* ContentView.swift */; };
+		49EABE682997646B00B1CEFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE672997646B00B1CEFC /* HomeView.swift */; };
 		49EABE6A2997646D00B1CEFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49EABE692997646D00B1CEFC /* Assets.xcassets */; };
 		49EABE6D2997646D00B1CEFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49EABE6C2997646D00B1CEFC /* Preview Assets.xcassets */; };
 		49EABE772997646D00B1CEFC /* timeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE762997646D00B1CEFC /* timeeTests.swift */; };
@@ -39,7 +39,7 @@
 		497B9B30299778280019117A /* EntryHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryHistoryView.swift; sourceTree = "<group>"; };
 		49EABE622997646B00B1CEFC /* timee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EABE652997646B00B1CEFC /* timeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeeApp.swift; sourceTree = "<group>"; };
-		49EABE672997646B00B1CEFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		49EABE672997646B00B1CEFC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		49EABE692997646D00B1CEFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49EABE6C2997646D00B1CEFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		49EABE722997646D00B1CEFC /* timeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = timeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,7 +168,7 @@
 		49EABE9329976A9A00B1CEFC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				49EABE672997646B00B1CEFC /* ContentView.swift */,
+				49EABE672997646B00B1CEFC /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				497B9B31299778280019117A /* EntryHistoryView.swift in Sources */,
-				49EABE682997646B00B1CEFC /* ContentView.swift in Sources */,
+				49EABE682997646B00B1CEFC /* HomeView.swift in Sources */,
 				49EABE9729976ADE00B1CEFC /* EntryLiveView.swift in Sources */,
 				49EABE662997646B00B1CEFC /* timeeApp.swift in Sources */,
 			);

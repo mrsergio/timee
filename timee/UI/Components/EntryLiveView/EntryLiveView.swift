@@ -14,7 +14,7 @@ enum EntryState {
 struct EntryLiveView: View {
     private let accentColor = Color.gray
     
-    @State var entry: String = ""
+    @State var entry: String
     @State var state: EntryState
     
     var body: some View {
@@ -63,7 +63,7 @@ struct EntryLiveView: View {
 
 struct EntryLiveView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryLiveView(state: .idle)
+        EntryLiveView(entry: "", state: .idle)
             .frame(width: 300, height: 44)
             .background(Color.gray.opacity(0.1))
             .previewDisplayName("Idle")
