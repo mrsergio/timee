@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		493E26E62997948800FD0B53 /* Palette.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493E26E52997948800FD0B53 /* Palette.xcassets */; };
 		493E26E82997955A00FD0B53 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E26E72997955A00FD0B53 /* Colors.swift */; };
+		493E26EB2997B97B00FD0B53 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 493E26EA2997B97B00FD0B53 /* ComposableArchitecture */; };
+		493E26ED2997B9AF00FD0B53 /* HomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E26EC2997B9AF00FD0B53 /* HomeReducer.swift */; };
 		497B9B31299778280019117A /* EntryHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B9B30299778280019117A /* EntryHistoryView.swift */; };
 		49EABE662997646B00B1CEFC /* timeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE652997646B00B1CEFC /* timeeApp.swift */; };
 		49EABE682997646B00B1CEFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE672997646B00B1CEFC /* HomeView.swift */; };
@@ -40,6 +42,7 @@
 /* Begin PBXFileReference section */
 		493E26E52997948800FD0B53 /* Palette.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Palette.xcassets; sourceTree = "<group>"; };
 		493E26E72997955A00FD0B53 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		493E26EC2997B9AF00FD0B53 /* HomeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReducer.swift; sourceTree = "<group>"; };
 		497B9B30299778280019117A /* EntryHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryHistoryView.swift; sourceTree = "<group>"; };
 		49EABE622997646B00B1CEFC /* timee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EABE652997646B00B1CEFC /* timeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeeApp.swift; sourceTree = "<group>"; };
@@ -59,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493E26EB2997B97B00FD0B53 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +186,7 @@
 		49EABE9329976A9A00B1CEFC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				493E26EC2997B9AF00FD0B53 /* HomeReducer.swift */,
 				49EABE672997646B00B1CEFC /* HomeView.swift */,
 			);
 			path = Home;
@@ -219,6 +224,9 @@
 			dependencies = (
 			);
 			name = timee;
+			packageProductDependencies = (
+				493E26EA2997B97B00FD0B53 /* ComposableArchitecture */,
+			);
 			productName = timee;
 			productReference = 49EABE622997646B00B1CEFC /* timee.app */;
 			productType = "com.apple.product-type.application";
@@ -291,6 +299,9 @@
 				Base,
 			);
 			mainGroup = 49EABE592997646B00B1CEFC;
+			packageReferences = (
+				493E26E92997B97B00FD0B53 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 49EABE632997646B00B1CEFC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -339,6 +350,7 @@
 				49EABE682997646B00B1CEFC /* HomeView.swift in Sources */,
 				49EABE9729976ADE00B1CEFC /* EntryLiveView.swift in Sources */,
 				49EABE662997646B00B1CEFC /* timeeApp.swift in Sources */,
+				493E26ED2997B9AF00FD0B53 /* HomeReducer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +675,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		493E26E92997B97B00FD0B53 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		493E26EA2997B97B00FD0B53 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 493E26E92997B97B00FD0B53 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 49EABE5A2997646B00B1CEFC /* Project object */;
 }
