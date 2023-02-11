@@ -16,16 +16,19 @@ struct EntryHistoryView: View {
         HStack() {
             Text(entry)
                 .font(.headline)
+                .foregroundColor(Color.DarkPurple)
             
             Spacer()
             
             VStack(alignment: .trailing) {
                 Text(when)
                     .font(.footnote)
+                    .foregroundColor(Color.LightPurple)
                 
                 Text(duration)
                     .font(.subheadline)
                     .fontWeight(.medium)
+                    .foregroundColor(Color.Orange)
             }
         }
     }
