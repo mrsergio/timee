@@ -1,0 +1,10 @@
+.DS_Store
+
+# Xcode
+xcuserdata
+*.xcuserstate
+
+# Swift Package Manager
+Package.pins
+Package.resolved
+.swiftpm
