@@ -18,28 +18,36 @@ struct HomeView: View {
                     List {
                         Section("Today") {
                             ForEach(viewStore.entries, id: \.self) { entry in
-                                EntryHistoryView(entry: entry.title, duration: String(entry.duration), when: "today")
+                                EntryHistoryView(entry: entry.title, duration: entry.duration.humanReadableTime, when: "today")
                             }
                         }
                         
                         Section("Yesterday") {
                             ForEach(viewStore.entries, id: \.self) { entry in
-                                EntryHistoryView(entry: entry.title, duration: String(entry.duration), when: "today")
+                                EntryHistoryView(entry: entry.title, duration: entry.duration.humanReadableTime, when: "today")
                             }
                         }
                     }
                 }
             }
             .safeAreaInset(edge: .bottom) {
-                EntryLiveView(entry: "", state: .idle)
-                    .frame(height: 44)
-                    .frame(maxWidth: .infinity)
-                    .padding([.top, .bottom], 16)
-                    .padding([.leading, .trailing], 12)
-                    .background(
-                        Color.DarkPurple
-                            .shadow(.drop(radius: 8))
-                    )
+                EntryLiveView(
+                    state: viewStore.currentEntry == nil ? .idle : .active,
+                    onStart: { (newEntryTitle: String) in
+                        viewStore.send(.onNewEntryStart(newEntryTitle))
+                    },
+                    onStop: { (newEntryTitle: String) in
+                        viewStore.send(.onNewEntryStop(newEntryTitle))
+                    }
+                )
+                .frame(height: 44)
+                .frame(maxWidth: .infinity)
+                .padding([.top, .bottom], 16)
+                .padding([.leading, .trailing], 12)
+                .background(
+                    Color.DarkPurple
+                        .shadow(.drop(radius: 8))
+                )
             }
             .onAppear {
                 viewStore.send(.onAppear)
@@ -54,8 +62,8 @@ struct HomeView_Previews: PreviewProvider {
             store: Store(
                 initialState: HomeReducer.State(
                     entries: [
-                        Entry(id: 1, title: "Patient #1", duration: 955, date: Date()),
-                        Entry(id: 2, title: "Patient #2", duration: 955, date: Date())
+                        Entry(id: 1, title: "Patient #1"),
+                        Entry(id: 2, title: "Patient #2")
                     ]
                 ),
                 reducer: HomeReducer()

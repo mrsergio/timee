@@ -15,7 +15,7 @@ struct timeeApp: App {
             NavigationStack {
                 HomeView(
                     store: Store(
-                        initialState: HomeReducer.State(entries: []),
+                        initialState: HomeReducer.State(),
                         reducer: HomeReducer()
                     )
                 )
