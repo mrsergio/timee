@@ -77,3 +77,16 @@ extension Database {
         }
     }
 }
+
+// - MARK: Composable Architecture `@Dependency` key support
+
+private enum DatabaseKey: DependencyKey {
+    static let liveValue = Database()
+}
+
+extension DependencyValues {
+    var database: Database {
+        get { self[DatabaseKey.self] }
+        set { self[DatabaseKey.self] = newValue }
+    }
+}
