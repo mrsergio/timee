@@ -32,7 +32,7 @@ struct HomeView: View {
             }
             .safeAreaInset(edge: .bottom) {
                 EntryLiveView(
-                    state: viewStore.currentEntry == nil ? .idle : .active,
+                    state: viewStore.currentEntry == nil ? .idle : .active(viewStore.timeElapsed),
                     onStart: { (newEntryTitle: String) in
                         viewStore.send(.onNewEntryStart(newEntryTitle))
                     },
@@ -40,13 +40,15 @@ struct HomeView: View {
                         viewStore.send(.onNewEntryStop(newEntryTitle))
                     }
                 )
-                .frame(height: 44)
-                .frame(maxWidth: .infinity)
                 .padding([.top, .bottom], 16)
                 .padding([.leading, .trailing], 12)
                 .background(
                     Color.DarkPurple
                         .shadow(.drop(radius: 8))
+                )
+                .animation(
+                    Animation.easeInOut(duration: 0.25),
+                    value: viewStore.currentEntry == nil
                 )
             }
             .onAppear {
