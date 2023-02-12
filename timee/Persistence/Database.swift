@@ -48,8 +48,8 @@ struct Database {
                 try db.create(table: "entry") { t in
                     t.autoIncrementedPrimaryKey("id")
                     t.column("title", .text).notNull()
-                    t.column("duration", .double).notNull()
-                    t.column("date", .datetime).notNull()
+                    t.column("startDate", .datetime).notNull()
+                    t.column("endDate", .datetime)
                 }
             }
         }
@@ -58,8 +58,14 @@ struct Database {
 
 extension Database {
     
-    func addEntry(title: String, duration: Double, date: Date) async throws -> Entry {
-        var newEntry = Entry(id: nil, title: title, duration: duration, date: date)
+    func addEntry(title: String, startDate: Date, endDate: Date? = nil) async throws -> Entry {
+        var newEntry = Entry(
+            id: nil,
+            title: title,
+            startDate: startDate,
+            endDate: endDate
+        )
+        
         newEntry = try await db.write { [newEntry] db in
             try newEntry.saved(db) // guaranteed non-nil `id` after save
         }
@@ -67,11 +73,21 @@ extension Database {
         return newEntry
     }
     
+    func editEntry(id: Int64?, title: String, endDate: Date) async throws -> Entry? {
+        try await db.write { db in
+            var editingEntry = try Entry.find(db, id: id)
+            editingEntry.title = title
+            editingEntry.endDate = endDate
+            return try editingEntry.updateAndFetch(db)
+        }
+    }
+    
     func fetchEntries() async throws -> [Entry] {
         try await db.read { db in
             let entries: [Entry] = try Entry.all()
                 .orderedByDate()
                 .fetchAll(db)
+                .filter({ $0.endDate != nil }) // filter out invalid / temporary entries without end date
             
             return entries
         }
