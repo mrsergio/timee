@@ -24,18 +24,7 @@ struct Entry: Identifiable, Hashable {
     /// in seconds (computed variable, not stored in DB)
     var duration: Double {
         if let endDate {
-            let startDateComponents = Calendar.current
-                .dateComponents([.second], from: startDate)
-            
-            let endDateComponents = Calendar.current
-                .dateComponents([.second], from: endDate)
-            
-            let duration = Calendar.current
-                .dateComponents([.second], from: startDateComponents, to: endDateComponents)
-                .second
-            
-            return Double(abs(duration ?? 0))
-            
+            return startDate.distance(to: endDate)
         } else {
             return 0.0
         }
