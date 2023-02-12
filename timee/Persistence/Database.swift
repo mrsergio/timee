@@ -55,3 +55,25 @@ struct Database {
         }
     }
 }
+
+extension Database {
+    
+    func addEntry(title: String, duration: Double, date: Date) async throws -> Entry {
+        var newEntry = Entry(id: nil, title: title, duration: duration, date: date)
+        newEntry = try await db.write { [newEntry] db in
+            try newEntry.saved(db) // guaranteed non-nil `id` after save
+        }
+        
+        return newEntry
+    }
+    
+    func fetchEntries() async throws -> [Entry] {
+        try await db.read { db in
+            let entries: [Entry] = try Entry.all()
+                .orderedByDate()
+                .fetchAll(db)
+            
+            return entries
+        }
+    }
+}
