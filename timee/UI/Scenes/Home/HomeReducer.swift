@@ -6,14 +6,20 @@
 //
 
 import ComposableArchitecture
+import Foundation
 
 struct HomeReducer: ReducerProtocol {
+    @Dependency(\.database) var database
     
     struct State: Equatable {
         var entries: [Entry] = []
     }
     
     enum Action: Equatable {
+        case onAppear
+        case onAddEntry(String)
+        
+        case set([Entry])
         case add(Entry)
         case delete(Entry)
     }
@@ -22,7 +28,21 @@ struct HomeReducer: ReducerProtocol {
         print("action: \(action)")
         
         switch action {
-            case .add(let entry):
+            case .onAppear:
+                return .task {
+                    let entries = try await database.fetchEntries()
+                    return .set(entries)
+                }
+
+            case .onAddEntry(let title):
+                return .none
+                
+            case .set(let entries):
+                state.entries = entries
+                return .none
+                
+            case .add(let newEntry):
+                state.entries.insert(newEntry, at: 0)
                 return .none
                 
             case .delete(let entry):

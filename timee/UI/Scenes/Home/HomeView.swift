@@ -8,12 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Entry: Hashable {
-    var title: String
-    var duration: Double // in seconds
-    var date: Date
-}
-
 struct HomeView: View {
     let store: StoreOf<HomeReducer>
     
@@ -47,6 +41,9 @@ struct HomeView: View {
                             .shadow(.drop(radius: 8))
                     )
             }
+            .onAppear {
+                viewStore.send(.onAppear)
+            }
         }
     }
 }
@@ -57,8 +54,8 @@ struct HomeView_Previews: PreviewProvider {
             store: Store(
                 initialState: HomeReducer.State(
                     entries: [
-                        Entry(title: "Patient #1", duration: 955, date: Date()),
-                        Entry(title: "Patient #2", duration: 955, date: Date())
+                        Entry(id: 1, title: "Patient #1", duration: 955, date: Date()),
+                        Entry(id: 2, title: "Patient #2", duration: 955, date: Date())
                     ]
                 ),
                 reducer: HomeReducer()
