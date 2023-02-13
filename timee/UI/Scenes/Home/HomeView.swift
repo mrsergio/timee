@@ -21,6 +21,9 @@ struct HomeView: View {
                         when: entry.startDate.humanReadableDate.lowercased()
                     )
                 }
+                .onDelete { (offsets: IndexSet) in
+                    viewStore.send(.delete(offsets))
+                }
             }
             .safeAreaInset(edge: .bottom) {
                 // New entry view at the very bottom of the screen (overlaps the main content)

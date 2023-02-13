@@ -16,7 +16,6 @@ struct HomeReducer: ReducerProtocol {
 
     struct State: Equatable {
         var entries: [Entry] = [] // list of all the entries fetched from DB
-        
         var currentEntry: Entry? // the entry user may start from the footer; equals `nil` when timer is stopped
         var timeElapsed: Double = 0 // current entry timer
     }
@@ -140,8 +139,19 @@ struct HomeReducer: ReducerProtocol {
                 return .none
                 
             case .delete(let offsets):
+                guard
+                    let index = Array(offsets).first,
+                    state.entries.indices.contains(index)
+                else {
+                    return .none
+                }
+                
+                let entryId: Int64? = state.entries[index].id
                 state.entries.remove(atOffsets: offsets)
-                return .none
+
+                return EffectTask.run { _ in
+                    try await database.deleteEntry(id: entryId)
+                }
         }
     }
 }

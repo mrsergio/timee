@@ -82,6 +82,12 @@ extension Database {
         }
     }
     
+    func deleteEntry(id: Int64?) async throws {
+        try await db.write { db in
+            try Entry.deleteOne(db, id: id)
+        }
+    }
+    
     func fetchEntries() async throws -> [Entry] {
         try await db.read { db in
             let entries: [Entry] = try Entry.all()
