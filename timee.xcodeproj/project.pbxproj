@@ -47,6 +47,7 @@
 		493E26F42997C90700FD0B53 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		493E26F629990AFF00FD0B53 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		493E27002999C66700FD0B53 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		493E270A299A032600FD0B53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		497B9B30299778280019117A /* EntryHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryHistoryView.swift; sourceTree = "<group>"; };
 		49EABE622997646B00B1CEFC /* timee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EABE652997646B00B1CEFC /* timeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeeApp.swift; sourceTree = "<group>"; };
@@ -164,6 +165,7 @@
 		49EABE90299768FE00B1CEFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				493E270A299A032600FD0B53 /* Info.plist */,
 				49EABE692997646D00B1CEFC /* Assets.xcassets */,
 				493E26E52997948800FD0B53 /* Palette.xcassets */,
 				49EABE6B2997646D00B1CEFC /* Preview Content */,
@@ -485,6 +487,8 @@
 				DEVELOPMENT_TEAM = 6QNRPCJX8C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = timee/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timee;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -514,6 +518,8 @@
 				DEVELOPMENT_TEAM = 6QNRPCJX8C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = timee/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Timee;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
