@@ -82,7 +82,7 @@ extension Database {
         }
     }
     
-    func deleteEntry(id: Int64?) async throws {
+    @discardableResult func deleteEntry(id: Int64?) async throws -> Bool {
         try await db.write { db in
             try Entry.deleteOne(db, id: id)
         }
