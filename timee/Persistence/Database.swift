@@ -104,6 +104,7 @@ extension Database {
 
 private enum DatabaseKey: DependencyKey {
     static let liveValue = Database()
+    static let testValue = Database()
 }
 
 extension DependencyValues {
