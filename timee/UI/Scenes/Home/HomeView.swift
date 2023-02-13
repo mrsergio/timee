@@ -13,24 +13,17 @@ struct HomeView: View {
     
     var body: some View {
         WithViewStore(store) { viewStore in
-            ZStack(alignment: .bottom) {
-                VStack {
-                    List {
-                        Section("Today") {
-                            ForEach(viewStore.entries, id: \.self) { entry in
-                                EntryHistoryView(entry: entry.title, duration: entry.duration.humanReadableTime, when: "today")
-                            }
-                        }
-                        
-                        Section("Yesterday") {
-                            ForEach(viewStore.entries, id: \.self) { entry in
-                                EntryHistoryView(entry: entry.title, duration: entry.duration.humanReadableTime, when: "today")
-                            }
-                        }
-                    }
+            List {
+                ForEach(viewStore.entries, id: \.self) { entry in
+                    EntryHistoryView(
+                        entry: entry.title,
+                        duration: entry.duration.humanReadableTime,
+                        when: entry.startDate.humanReadableDate.lowercased()
+                    )
                 }
             }
             .safeAreaInset(edge: .bottom) {
+                // New entry view at the very bottom of the screen (overlaps the main content)
                 EntryLiveView(
                     state: viewStore.currentEntry == nil ? .idle : .active(viewStore.timeElapsed),
                     onStart: { (newEntryTitle: String) in

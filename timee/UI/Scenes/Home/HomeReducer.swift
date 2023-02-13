@@ -16,6 +16,7 @@ struct HomeReducer: ReducerProtocol {
 
     struct State: Equatable {
         var entries: [Entry] = [] // list of all the entries fetched from DB
+        
         var currentEntry: Entry? // the entry user may start from the footer; equals `nil` when timer is stopped
         var timeElapsed: Double = 0 // current entry timer
     }
@@ -41,12 +42,10 @@ struct HomeReducer: ReducerProtocol {
         case setCurrentEntry(Entry?)
         
         case add(Entry)
-        case delete(Entry)
+        case delete(IndexSet)
     }
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-        print("action: \(action)")
-        
         switch action {
             case .onAppear:
                 return .task {
@@ -140,7 +139,8 @@ struct HomeReducer: ReducerProtocol {
                 state.entries.insert(newEntry, at: 0)
                 return .none
                 
-            case .delete(let entry):
+            case .delete(let offsets):
+                state.entries.remove(atOffsets: offsets)
                 return .none
         }
     }

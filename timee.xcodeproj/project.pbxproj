@@ -15,6 +15,7 @@
 		493E26F32997C50C00FD0B53 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E26F22997C50C00FD0B53 /* Entry.swift */; };
 		493E26F52997C90700FD0B53 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E26F42997C90700FD0B53 /* Database.swift */; };
 		493E26F729990AFF00FD0B53 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E26F629990AFF00FD0B53 /* Double.swift */; };
+		493E27012999C66700FD0B53 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493E27002999C66700FD0B53 /* Date.swift */; };
 		497B9B31299778280019117A /* EntryHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497B9B30299778280019117A /* EntryHistoryView.swift */; };
 		49EABE662997646B00B1CEFC /* timeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE652997646B00B1CEFC /* timeeApp.swift */; };
 		49EABE682997646B00B1CEFC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EABE672997646B00B1CEFC /* HomeView.swift */; };
@@ -50,6 +51,7 @@
 		493E26F22997C50C00FD0B53 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		493E26F42997C90700FD0B53 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		493E26F629990AFF00FD0B53 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		493E27002999C66700FD0B53 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		497B9B30299778280019117A /* EntryHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryHistoryView.swift; sourceTree = "<group>"; };
 		49EABE622997646B00B1CEFC /* timee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = timee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EABE652997646B00B1CEFC /* timeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timeeApp.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				493E26E72997955A00FD0B53 /* Colors.swift */,
 				493E26F629990AFF00FD0B53 /* Double.swift */,
+				493E27002999C66700FD0B53 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				493E26F32997C50C00FD0B53 /* Entry.swift in Sources */,
+				493E27012999C66700FD0B53 /* Date.swift in Sources */,
 				497B9B31299778280019117A /* EntryHistoryView.swift in Sources */,
 				493E26E82997955A00FD0B53 /* Colors.swift in Sources */,
 				49EABE682997646B00B1CEFC /* HomeView.swift in Sources */,
