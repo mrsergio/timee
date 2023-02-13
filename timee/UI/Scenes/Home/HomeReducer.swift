@@ -22,6 +22,7 @@ struct HomeReducer: ReducerProtocol {
     
     enum Action: Equatable {
         case onAppear
+        case onBecomeActive
         
         case onNewEntryStart(String) // called on "Play" button tap
         case onNewEntryStop(String) // called on "Stop" button tap
@@ -51,6 +52,17 @@ struct HomeReducer: ReducerProtocol {
                     let entries = try await database.fetchEntries()
                     return .setAllEntries(entries)
                 }
+                
+            case .onBecomeActive:
+                /* App become active, update timer if there is one */
+                guard let currentEntry = state.currentEntry else {
+                    return .none
+                }
+                
+                // Update time elapsed
+                state.timeElapsed = currentEntry.startDate.distance(to: Date())
+                
+                return .none
                 
             case .onNewEntryStart(let title):
                 return .merge(

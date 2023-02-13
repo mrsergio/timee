@@ -9,6 +9,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct HomeView: View {
+    @Environment(\.scenePhase) private var scenePhase
     let store: StoreOf<HomeReducer>
     
     var body: some View {
@@ -55,6 +56,11 @@ struct HomeView: View {
             }
             .onAppear {
                 viewStore.send(.onAppear)
+            }
+            .onChange(of: scenePhase) { newValue in
+                if newValue == .active {
+                    viewStore.send(.onBecomeActive)
+                }
             }
         }
     }
