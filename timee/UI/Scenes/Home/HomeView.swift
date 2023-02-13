@@ -10,6 +10,7 @@ import ComposableArchitecture
 
 struct HomeView: View {
     @Environment(\.scenePhase) private var scenePhase
+    @State private var showAlert = false
     let store: StoreOf<HomeReducer>
     
     var body: some View {
@@ -30,6 +31,12 @@ struct HomeView: View {
                 // Display 'no content' overlay when there are no entries found
                 if viewStore.entries.isEmpty {
                     noContentView
+                }
+            }
+            .toolbar {
+                // Toolbar button to populate list with a random entries (for preview purposes)
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    populateRandomEntriesButton(using: viewStore)
                 }
             }
             .safeAreaInset(edge: .bottom) {
@@ -77,6 +84,28 @@ struct HomeView: View {
                 .multilineTextAlignment(.center)
                 .foregroundColor(Color.DarkPurple.opacity(0.75))
         }
+    }
+    
+    private func populateRandomEntriesButton(using viewStore: ViewStoreOf<HomeReducer>) -> some View {
+        Button {
+            showAlert = true
+        } label: {
+            Image(systemName: "command")
+                .foregroundColor(Color.LightPurple)
+        }
+        .alert(
+            "Populate with random entries?",
+            isPresented: $showAlert,
+            actions: {
+                Button("Cancel", role: .cancel) { }
+                Button("Yes", role: .destructive) {
+                    viewStore.send(.populateRandomEntries)
+                }
+            },
+            message: {
+                Text("This will not overwrite your entries")
+            }
+        )
     }
 }
 

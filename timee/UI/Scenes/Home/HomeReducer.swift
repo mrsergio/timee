@@ -43,6 +43,8 @@ struct HomeReducer: ReducerProtocol {
         
         case add(Entry)
         case delete(IndexSet)
+        
+        case populateRandomEntries
     }
     
     func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
@@ -164,6 +166,42 @@ struct HomeReducer: ReducerProtocol {
                 return EffectTask.run { _ in
                     try await database.deleteEntry(id: entryId)
                 }
+                
+            case .populateRandomEntries:
+                /* Generate random entries for preview purposes */
+                
+                let pastWeek: Date = Calendar.current.date(byAdding: .day, value: -7, to: Date()) ?? Date()
+                let yesterday: Date = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
+                
+                state.entries = [
+                    Entry(id: 1004,
+                          title: "Patient #5",
+                          startDate: Date(),
+                          endDate: Date().advanced(by: 60*8 + 24)
+                    ),
+                    Entry(id: 1003,
+                          title: "Patient #4",
+                          startDate: Date(),
+                          endDate: Date().advanced(by: 60*48 + 12)
+                    ),
+                    Entry(id: 1002,
+                          title: "Patient #3",
+                          startDate: Date(),
+                          endDate: Date().advanced(by: 60*14 + 14)
+                    ),
+                    Entry(id: 1001,
+                          title: "Patient #2",
+                          startDate: yesterday,
+                          endDate: yesterday.advanced(by: 54*12 - 4)
+                    ),
+                    Entry(id: 1000,
+                          title: "Patient #1",
+                          startDate: pastWeek,
+                          endDate: pastWeek.advanced(by: 13*12 - 58)
+                    )
+                ]
+                
+                return .none
         }
     }
 }
