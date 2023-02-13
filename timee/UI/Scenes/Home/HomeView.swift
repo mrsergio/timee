@@ -25,6 +25,12 @@ struct HomeView: View {
                     viewStore.send(.delete(offsets))
                 }
             }
+            .overlay {
+                // Display 'no content' overlay when there are no entries found
+                if viewStore.entries.isEmpty {
+                    noContentView
+                }
+            }
             .safeAreaInset(edge: .bottom) {
                 // New entry view at the very bottom of the screen (overlaps the main content)
                 EntryLiveView(
@@ -50,6 +56,20 @@ struct HomeView: View {
             .onAppear {
                 viewStore.send(.onAppear)
             }
+        }
+    }
+    
+    private var noContentView: some View {
+        VStack(spacing: 4) {
+            Text("No entries")
+                .font(.title3)
+                .foregroundColor(Color.DarkPurple)
+            
+            Text("add one below")
+                .italic()
+                .font(.body)
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.DarkPurple.opacity(0.75))
         }
     }
 }
